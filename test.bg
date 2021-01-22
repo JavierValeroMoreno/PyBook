@@ -1,0 +1,37 @@
+@META
+VEL:10
+@CASE
+NUM:0
+@TEXT
+aqui hay 3 opciones
+@OPT
+a:opcion 1:1
+b:opcion 2:2
+c:opcion 3:3
+@END_CASE
+@CASE
+NUM:1
+@TEXT
+aqui hay 4 opciones
+la primera va a recursivo
+la segunda a si mismo
+la tercera al siguiente
+y la cuarta al final
+@OPT
+a:opcion 1:0
+b:opcion 2:1
+c:opcion 3:2
+d:opcion 4:3
+@END_CASE
+@CASE
+NUM:2
+@TEXT
+aqui hay 1 opcion
+@OPT
+a:opcion 1:3
+@END_CASE
+@CASE
+NUM:3
+@TEXT
+Este es el nodo final, BYE BYE
+@END_CASE
