@@ -8,7 +8,7 @@ import os
 
 class Book:
 
-    def __init__(self, casos: list = [],  vel: int = 10):
+    def __init__(self, casos: dict = {},  vel: int = 10):
         self.casos = casos
         self.vel = vel
         self.actual = 0
@@ -24,7 +24,7 @@ class Book:
                     break
 
     def load_file(self, path: str):
-        c = []
+        c = {}
         with open(path, 'r') as reader:
             line = "init"
             while line != '':
@@ -57,7 +57,7 @@ class Book:
                                 opt_c[aux[0]] = aux[1]
                                 opt_o[aux[0]] = aux[2]
 
-                    c.append(Case(text, opt_c, opt_o, self.vel))
+                    c[num_case] = Case(text, opt_c, opt_o, self.vel)
         self.casos = c
 
 
