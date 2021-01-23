@@ -53,8 +53,8 @@ class Book(object):
                                     text = text + line
                                 if op == "o":
                                     aux = line.split(':')
-                                    opt_c[aux[0]] = aux[1]
-                                    opt_o[aux[0]] = aux[2]
+                                    opt_c[aux[0].strip()] = aux[1].strip()
+                                    opt_o[aux[0].strip()] = aux[2]
 
                         c[num_case] = Case(text, opt_c, opt_o, self.vel)
         except FileNotFoundError as fnfe:
