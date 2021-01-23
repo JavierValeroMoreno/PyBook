@@ -12,7 +12,7 @@ the first sentence is @META this define the block of metadatas that our bookgame
 | ------------- | ------------- | ------------- |
 | VEL | int  | Speed of the text |
 
-VEL:<some value>
+VEL:some_value
 
 after load the metadatas we start to load the cases, Every case start with the line @CASE and end with @END_CASE a case could be a node or decision case or a leaf
 or end case, the diference between bot is that nodes have the block for @OPT 
@@ -22,11 +22,11 @@ or end case, the diference between bot is that nodes have the block for @OPT
 | ------------- | ------------- | ------------- |
 | NUM | int  | index of the case |
 
-NUM:<case num>
+NUM:case_num
 
 @TEXT contain some lines that is the descripction, or narrative of the case
 
 @OP (optional) Contain in each line a option for the actual node, if this is a end case this param can be obviated.
 
 every option use this format:
-<character/string>:<description>:<next_case(int)>
+<character/string>:<description_text>:<next_case(int)>
