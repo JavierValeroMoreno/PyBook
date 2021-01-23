@@ -1,32 +1,90 @@
 # PyBook
 
+### File structure
 
-#### FILE STRUCT ####
+* The file name should be something like `myfile.bg`.
+* The inner structure of the file is the next:
 
-The file name should be <name>.bg 
-The inner struc of the file its the next
+The first sentence will be always `@META`. This will define the block of metadata that our bookgame contains.
 
-the first sentence is @META this define the block of metadatas that our bookgame contain
-| @META|
-| Name | Type |Info|
-| ------------- | ------------- | ------------- |
-| VEL | int  | Speed of the text |
+#### @META
 
-VEL:some_value
+| Name | Type | Info              |
+| ---- | ---- | ----------------- |
+| VEL  | int  | Speed of the text |
 
-after load the metadatas we start to load the cases, Every case start with the line @CASE and end with @END_CASE a case could be a node or decision case or a leaf
-or end case, the diference between bot is that nodes have the block for @OPT 
+`VEL:some_value`
 
-| @CASE|
-| Name | Type |Info|
-| ------------- | ------------- | ------------- |
-| NUM | int  | index of the case |
+After load the metadata we start to load the cases. Every case start with the line `@CASE` and end with `@END_CASE`. A case could be a node or decision case, or a leaf
+or end case, the diference between both is that nodes have the block for `@OPT`.
 
-NUM:case_num
+#### @CASE
 
-@TEXT contain some lines that is the descripction, or narrative of the case
+| Name | Type | Info              |
+| ---- | ---- | ----------------- |
+| NUM  | int  | index of the case |
 
-@OP (optional) Contain in each line a option for the actual node, if this is a end case this param can be obviated.
+`NUM:case_num`
 
-every option use this format:
+#### @TEXT
+
+Contains some lines that is the descripction, or narrative of the case.
+
+#### @OP (optional) 
+
+Contains in each line a option for the actual node, if this is a end case this param can be skipped.
+
+Every option use this format:
+
 <character/string>:<description_text>:<next_case(int)>
+
+### BG file example
+
+```
+@META
+  VEL:10
+  
+@CASE
+  NUM:0
+  
+  @TEXT
+    Here will be three options, choose one.
+  
+  @OPT
+    a:option 1:1
+    b:option 2:2
+    c:option 3:3
+@END_CASE
+
+@CASE
+  NUM:1
+  @TEXT
+    Here there are four options
+    First one is recursive.
+    Second one, goes to itself.
+    Third one goes to next step.
+    Forth one goes to the end.
+  @OPT
+    a:option 1:0
+    b:option 2:1
+    c:option 3:2
+    d:option 4:3
+@END_CASE
+
+@CASE
+  NUM:2
+
+  @TEXT
+    Here is one option
+    
+  @OPT
+    a:option 1:3
+@END_CASE
+
+@CASE
+  NUM:3
+  
+  @TEXT
+    Final node is here. Bye!
+@END_CASE
+```
