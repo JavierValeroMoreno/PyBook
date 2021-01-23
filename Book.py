@@ -1,11 +1,10 @@
-import colorama
 from colorama import Fore
 from time import sleep
-import platform
 from Case import Case
+import colorama
+import platform
 import os
-
-
+    
 class Book:
 
     def __init__(self, casos: dict = {},  vel: int = 10):
@@ -59,9 +58,3 @@ class Book:
 
                     c[num_case] = Case(text, opt_c, opt_o, self.vel)
         self.casos = c
-
-
-if __name__ == "__main__":
-    libro = Book()
-    libro.load_file("test.bg")
-    libro.init()
