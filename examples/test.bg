@@ -1,14 +1,18 @@
 @META
-VEL:10
+    VEL:10
+
 @CASE
-NUM:0
-@TEXT
-aqui hay 3 opciones
-@OPT
-a:opcion 1:1
-b:opcion 2:2
-c:opcion 3:3
+    NUM:0
+
+    @TEXT
+        aqui hay 3 opciones
+        
+    @OPT
+        a:opcion 1:1
+        b:opcion 2:2
+        c:opcion 3:3
 @END_CASE
+
 @CASE
 NUM:1
 @TEXT
