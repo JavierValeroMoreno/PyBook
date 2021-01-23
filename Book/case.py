@@ -1,8 +1,6 @@
-import colorama
-from colorama import Fore
+from colorama import Fore, init
 from time import sleep
 import platform
-
 
 class Case:
 
@@ -13,8 +11,9 @@ class Case:
         self.vel = vel
         self.user_c = Fore.WHITE
         self.dm_c = Fore.GREEN
-        if(platform.system() == "Windows"):
-            colorama.init()
+
+        if platform.system() == "Windows":
+            init()
 
     def u_print(self, end_="\n"):
         if(not bool(self.options)):
